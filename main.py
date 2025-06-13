@@ -54,5 +54,5 @@ def index():
 
 
 @app.post("/present")
-async def give_present(present):
-    return {"response": f"サーバです。メリークリスマス！ {present}ありがとう。お返しはキャンディーです。"}  # f文字列というPythonの機能を使っている
+async def give_present(score):
+    return {"response": f"中間考査お疲れさまでした。点数は {score}点です。"}  # f文字列というPythonの機能を使っている
