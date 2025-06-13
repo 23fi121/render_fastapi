@@ -2,6 +2,9 @@ from typing import Optional
 
 from fastapi import FastAPI
 
+from fastapi.responses import HTMLResponse #インポート
+
+
 import random  # randomライブラリを追加
 
 app = FastAPI()
@@ -31,3 +34,20 @@ def omikuji():
     ]
 
     return omikuji_list[random.randrange(10)]
+
+
+@app.get("/index")
+def index():
+    html_content = """
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Some HTML in here</title>
+        </head>
+        <body>
+            <h1 style="color: #ff0000">unityroomで遊ぼう！</h1>
+            <a href="https://unityroom.com/games/piggy_bank_shooter" title="検索">サイトへ</a>
+        </body>
+    </html>
+    """
+    return HTMLResponse(content=html_content, status_code=200)
